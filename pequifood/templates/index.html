@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        PequiFood
-    </title>
-</head>
-<body>
-    <h1>Bem vindo, {{ name }}</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% import "macros/lista_item.html" as list_itens %}
+
+{% block top %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            Hello World
+        </h1>
+        <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+        </p>
+    </div>
+</section>
+{% endblock top %}
+
+{% block main %}
+<div class="columns">
+    {{ list_itens.cards([1, 2, 3, 4]) }}
+</div>
+{% endblock main %}
