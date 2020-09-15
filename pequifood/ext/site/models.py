@@ -15,7 +15,7 @@ class Category(db.Model):
     name = db.Column("name", db.Unicode, unique=True)
 
 
-class Strore(db.Model):
+class Store(db.Model):
     __tablename__ = "store"
     id = db.Column("id", db.Integer, primary_key=True)
     user_id = db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
@@ -58,7 +58,7 @@ class Order(db.Model):
 class OrderItems(db.Model):
     __tablename__ = "order_items"
     order_id = db.Column("order_id", db.Integer, db.ForeignKey("order.id"))
-    items_id = db.Column("items_id", db.Integer, db.ForeignKey("item.id"))
+    items_id = db.Column("items_id", db.Integer, db.ForeignKey("items.id"))
     quant = db.Column("quant", db.Integer)
     id = db.Column("id", db.Integer, primary_key=True)
 
@@ -75,7 +75,7 @@ class Checkout(db.Model):
     completed = db.Column("completed", db.Boolean)
     order_id = db.Column("order_id", db.Integer, db.ForeignKey("order.id"))
 
-    order = db.relationship("Order", foreign_key=order_id)
+    order = db.relationship("Order", foreign_keys=order_id)
 
 
 class Address(db.Model):
@@ -83,7 +83,7 @@ class Address(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)
     zip = db.Column("zip", db.Unicode)
     country = db.Column("country", db.Unicode)
-    address = db.relationship("address", db.Unicode)
-    user_id = db.relationship("user_id", db.Integer, db.ForeignKey("user.id"))
+    address = db.Column("address", db.Unicode)
+    user_id = db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
 
     user = db.relationship("User", foreign_keys=user_id)
