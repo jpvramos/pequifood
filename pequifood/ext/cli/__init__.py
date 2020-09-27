@@ -1,5 +1,6 @@
 import click
 from pequifood.ext.db import db
+from pequifood.ext.auth.models import User
 from pequifood.ext.site import models 
 
 
@@ -16,7 +17,7 @@ def init_app(app):
     @click.option("--admin", "-a", is_flag=True, default=False)
     def add_user(email, passwd, admin):
         """Adiciona um novo Usuario"""
-        user = models.User(email=email, 
+        user = User(email=email, 
                     passwd=passwd, 
                     admin=admin
                     )
@@ -27,7 +28,9 @@ def init_app(app):
         
     @app.cli.command()
     def listar_usuarios():
-        click.echo("Lista de Usuarios")
+        users = User.query.all()
+        for user in users:
+            click.echo(user)
         
     @app.cli.command()
     def listar_produtos():

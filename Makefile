@@ -14,5 +14,9 @@ clean:
 install:
 	pip install -e .['dev']
 
+init_db:
+	FLASK_APP=pequifood/app.py flask create-db
+	FLASK_APP=pequifood/app.py flask db
+
 test:
 	pytest tests/ -v --cov=pequifood
