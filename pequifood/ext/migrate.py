@@ -1,5 +1,5 @@
 from flask_migrate import Migrate
-from pequifood.ext.db import db, models # noqa
+from pequifood.ext.db import db
 
 
 migrate = Migrate()

@@ -19,4 +19,14 @@ init_db:
 	FLASK_APP=pequifood/app.py flask db
 
 test:
-	pytest tests/ -v --cov=pequifood
+	FLASK_ENV=test pytest tests/ -v --cov=pequifood
+
+format:
+	isort **/*.py
+	black -l 79 **/*.py
+
+
+run:
+	Set FLASK_APP="pequifood\\app.py"
+	Set FLASK_ENV="development"
+	flask run

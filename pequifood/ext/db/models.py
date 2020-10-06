@@ -17,7 +17,7 @@ class Store(db.Model):
     )
     activate = db.Column("admin", db.Boolean)
     
-            user = db.relationship("User", foreign_keys=user_id)
+    user = db.relationship("User", foreign_keys=user_id)
     category = db.relationship("Category", foreign_keys=Category_id)
 
 

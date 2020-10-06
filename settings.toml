@@ -1,0 +1,33 @@
+[default]
+DEBUG = false
+FLASK_ADMIN_SWATCH = "united"
+EXTENSIONS= [
+    "pequifood.ext.db:init_app",
+    "pequifood.ext.auth:init_app",
+    "pequifood.ext.admin:init_app",
+    "pequifood.ext.cli:init_app",
+    "pequifood.ext.site:init_app",
+    ]
+
+
+[development]
+DEBUG = true
+SECRET_KEY = '\xb4l\xc2\xb0\xd6\xe3\xc4\x03\x0b\x93Z\xdbER\xe6\xe4'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///pequifood.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PROFILER_ENABLED = true
+DEBUG_TB_INTERCEPT_REDIRECTS = false
+EXTENSIONS= [
+    "pequifood.ext.db:init_app",
+    "pequifood.ext.auth:init_app",
+    "pequifood.ext.admin:init_app",
+    "pequifood.ext.cli:init_app",
+    "pequifood.ext.toolbar:init_app",
+    "pequifood.ext.site:init_app",
+    ]
+
+
+    
+[production]
+SQLALCHEMY_TRACK_MODIFICATIONS = false

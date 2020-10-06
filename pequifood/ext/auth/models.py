@@ -1,8 +1,9 @@
 from pequifood.ext.db import db
- 
+
 
 class User(db.Model):
     __tablename__ = "user"
+    __table_args__ = {'extend_existing': True}
     id = db.Column("id", db.Integer, primary_key=True)
     email = db.Column("email", db.Unicode, unique=True)
     passwd = db.Column("passwd", db.Unicode)

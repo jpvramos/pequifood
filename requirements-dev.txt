@@ -8,3 +8,5 @@ ipython
 pytest
 pytest-flask
 pytest-cov
+Flask-Migrate
+pylint
